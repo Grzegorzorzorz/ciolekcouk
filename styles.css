@@ -1,32 +1,31 @@
 main {
-	display: flex;
+  display: flex;
 }
 
 li {
-	font-size: 13pt;
+  font-size: 13pt;
 }
 
 p {
-	font-size: 13pt;
+  font-size: 13pt;
 }
 
 img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	width: 30%;
-	min-width: 30ch;
-	max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+  min-width: 30ch;
+  max-width: 100%;
 }
 
 nav {
-
-	width: 10%;
-	min-width: 20ch;
-    padding-right: 3ch;
-    overflow: clip;
+  width: 10%;
+  min-width: 20ch;
+  padding-right: 3ch;
+  overflow: clip;
 }
 
 article {
-	width: 80ch;
+  width: 80ch;
 }
