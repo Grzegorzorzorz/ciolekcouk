@@ -120,7 +120,7 @@ env = __VK_LAYER_NV_optimus,non_NVIDIA_only
 env = LIBVA_DRIVER_NAME,iHD
 env = VDPAU_DRIVER,va_gl</code></pre>
         <p>
-          What this does isinstruct Hyprland to not use the dGPU at all, and to
+          What this does is instruct Hyprland to not use the dGPU at all, and to
           render exclusively on the iGPU. Now this change does mean that we have
           to implement a modified <code>prime-run</code> wrapper script that
           does the opposite:
