@@ -29,3 +29,21 @@ nav {
 article {
   width: 80ch;
 }
+
+table,
+th,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+table {
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+}
+
+th,
+td {
+  padding: 1ch;
+}
