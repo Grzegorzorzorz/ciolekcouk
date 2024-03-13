@@ -37,7 +37,9 @@ nav {
 }
 
 article {
-  width: 80ch;
+  width: 100%;
+  min-width: 15ch;
+  max-width: 80ch;
 }
 
 table,
@@ -56,4 +58,10 @@ table {
 th,
 td {
   padding: 1ch;
+}
+
+@media only screen and (max-width: 110ch) {
+  main {
+    flex-direction: column;
+  }
 }
