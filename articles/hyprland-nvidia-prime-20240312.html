@@ -49,8 +49,8 @@
         <h2>Suspend issues</h2>
         <p>
           The first issue I opted to tackle was the suspend issue, since it
-          caused fairly significant issues to me as a student who has to move
-          his laptop between lecture theatres.
+          caused fairly significant issues to me as a student who has to move a
+          laptop between lecture theatres.
         </p>
         <p>
           My first step in identifying the Nvidia drivers as the culprit was to
@@ -58,11 +58,10 @@
           resulted in faultless suspend and resume.
         </p>
         <p>
-          To cut a long story short, I found the following script for properly
+          After a lot of research, I found the following script for properly
           suspending and resuming the Nvidia card, to be installed in
           <code>/lib64/elogind/system-sleep/</code>:
         </p>
-
         <pre><code>#!/bin/sh
 
 case "${1-}" in
@@ -90,7 +89,6 @@ esac</code></pre>
           >
           services, though I haven't looked too far into those.
         </p>
-
         <h2>Hyprland drawing issues</h2>
         <p>
           Up until the issues started to present, I used a fairly lax NVIDA
@@ -122,10 +120,10 @@ env = __VK_LAYER_NV_optimus,non_NVIDIA_only
 env = LIBVA_DRIVER_NAME,iHD
 env = VDPAU_DRIVER,va_gl</code></pre>
         <p>
-          What this change effectively did is instruct Hyprland to not use the
-          dGPU at all, and to render exclusively on the iGPU. Now this change
-          does mean that we have to implement a modified
-          <code>prime-run</code> wrapper script that does the opposite:
+          What this does isinstruct Hyprland to not use the dGPU at all, and to
+          render exclusively on the iGPU. Now this change does mean that we have
+          to implement a modified <code>prime-run</code> wrapper script that
+          does the opposite:
         </p>
         <pre><code>#!/bin/bash
 export GBM_BACKEND="nvidia-drm"
@@ -145,7 +143,8 @@ unset MESA_VK_DEVICE_SELECT
           wrapped executable use our dGPU to render instead of the iGPU, and
           from the testing I've done, it works very well. It should be said,
           however, that I cannot attest to the longevity of this solution, but I
-          hope it works for the foreseeable future.
+          hope it works for the foreseeable future; if not, I'll likely throw a
+          solution here.
         </p>
         <p>
           A side effect I noticed from this is that Hyprland no longer appears
