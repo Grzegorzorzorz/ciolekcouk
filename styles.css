@@ -71,7 +71,7 @@ td {
   padding: 1ch;
 }
 
-@media screen and (width < 900px) {
+@media screen and (width < 900px), screen and (orientation: portrait), print {
   main {
     flex-direction: column;
   }
@@ -89,5 +89,16 @@ td {
     width: 90%;
     padding: 0 5% 0 5%;
     margin: 0 auto 0 auto;
+  }
+}
+
+@media print {
+  nav {
+    height: 0px;
+    visibility: hidden;
+  }
+
+  pre:has(code) {
+    font-size: calc(((100vw / 80) / 3) * 4);
   }
 }
