@@ -63,8 +63,7 @@
           <code>/lib64/elogind/system-sleep/</code>:
         </p>
 
-        <pre><code>
-#!/bin/sh
+        <pre><code>#!/bin/sh
 
 case "${1-}" in
 		'pre')
@@ -77,8 +76,7 @@ case "${1-}" in
 		*)
 				exit 1
 				;;
-esac	
-				</code></pre>
+esac</code></pre>
         <p>
           Which did fix the sleep and resume issues, though did not help with
           the compositor drawing issues.

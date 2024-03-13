@@ -23,6 +23,12 @@ header {
   border-bottom: 1pt solid;
 }
 
+pre:has(code) {
+  border: 1pt solid;
+  padding: 2em;
+  overflow-x: auto;
+}
+
 nav {
   width: 10%;
   min-width: 20ch;
@@ -37,7 +43,7 @@ article {
 table,
 th,
 td {
-  border: 1px solid;
+  border: 1pt solid;
   border-collapse: collapse;
 }
 
