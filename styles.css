@@ -108,5 +108,6 @@ td {
 
   pre:has(code) {
     font-size: calc(((100vw / 80) / 3) * 4);
+    overflow-x: visible;
   }
 }
