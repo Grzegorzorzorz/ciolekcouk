@@ -101,6 +101,11 @@ td {
     visibility: hidden;
   }
 
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   pre:has(code) {
     font-size: calc(((100vw / 80) / 3) * 4);
   }
