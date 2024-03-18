@@ -51,6 +51,7 @@ article {
   width: 100%;
   min-width: 15ch;
   max-width: 80ch;
+  margin-bottom: 5em;
 }
 
 table,
@@ -87,8 +88,10 @@ td {
   article {
     max-width: 80ch;
     width: 90%;
-    padding: 0 5% 0 5%;
-    margin: 0 auto 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 
