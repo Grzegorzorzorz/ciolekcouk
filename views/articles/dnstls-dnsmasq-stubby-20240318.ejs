@@ -4,25 +4,12 @@
     <title>DoT: Setting up DNS over TLS on OpenRC</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header>
-      <h1>Grzegorz Ciołek</h1>
-    </header>
+		<%- include("../partials/header") -%>
     <main>
-      <nav>
-        <h2>Navigation</h2>
-        <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/contact/">Contact</a></li>
-          <li><a href="/articles/">Articles</a></li>
-        </ul>
-        <h3>External</h3>
-        <ul>
-          <li><a href="https://github.com/Grzegorzorzorz">GitHub</a></li>
-        </ul>
-      </nav>
+			<%- include("../partials/nav") -%>
       <article>
         <h2>DoT: Setting up DNS over TLS on OpenRC</h2>
         <p>
@@ -142,7 +129,7 @@ upstream_recursive_servers:
         </p>
         <p>
           If set to <code>1</code>, it avoids this issue, but content may not be
-          as geographically relevant. I reccommend this and setting seach engine
+          as geographically relevant. I recommend this and setting seach engine
           options instead.
         </p>
         <h4><code>round_robin_upstreams</code></h4>

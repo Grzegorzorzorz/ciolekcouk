@@ -1,0 +1,16 @@
+{
+	"version": 2,
+	"framework": "other",
+	"builds": [
+		{
+			"src": "index.js",
+			"use": "@vercel/node"
+		}
+	],
+	"rewrites": [
+		{
+			"source": "/(.*)",
+			"destination": "index.js"
+		}
+	]
+}
