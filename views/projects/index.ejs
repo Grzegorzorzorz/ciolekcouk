@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Projects</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
+  <body>
+    <%- include("../partials/header") -%>
+    <main>
+      <%- include("../partials/nav") -%>
+      <article>
+        <h1>Projects</h1>
+        <p>
+          This page might not be fully up to date, so I recommend you also check
+          my <a href="https://github.com/Grzegorzorzorz/grzetris">GitHub</a> for
+          a more current list!
+        </p>
+        <h2>ciolek.co.uk</h2>
+        <p>
+          I started this site to showcase my projects, and to post articles
+          about stuff I either find interesting, or resources for future
+          reference, such as fixing the
+          <a href="/articles/hyprland-nvidia-prime-20240312.ejs"
+            >Nvidia issues I had on Hyprland</a
+          >.
+        </p>
+        <p>
+          It started off as a simple pure HTML/CSS project, but I've recently
+          migrated it to use Express.js to further my understanding of JS
+          frameworks and to simplify maintenance.
+        </p>
+        <p>
+          The philosophy behind this site is to keep it simple and accessible;
+          It doesn't need to be complex, so it shouldn't be. Effort is put into
+          ensuring that the mobile and desktop experience scale well across each
+          other, and that older tools, such as
+          <a href="http://links.twibright.com/">Links</a>
+          work well with it.
+        </p>
+        <p>
+          Sources:
+          <a href="https://github.com/Grzegorzorzorz/ciolekcouk">GitHub</a>
+        </p>
+        <h2>grzetris</h2>
+        <p>
+          The idea for grzetris began when I started playing *tris-likes in
+          between lectures, namely
+          <a href="https://github.com/DavidGriffith/tint">tint</a>. It inspired
+          me to produce my own take on the genre, which resulted in grzetris.
+        </p>
+        <p>
+          grzetris is still in its early stages, but it's a fully playable game
+          at this point. The main features that I am left to implement are as
+          follows:
+        </p>
+        <ul>
+          <li>Key remap menu</li>
+          <li>Scoring</li>
+          <li>Difficulty levels</li>
+          <li>Piece storing</li>
+        </ul>
+        <p>
+          It's a fun project to work on, and is written in C++ with ncurses.
+        </p>
+        <p>
+          Sources:
+          <a href="https://github.com/Grzegorzorzorz/grzetris">GitHub</a>
+        </p>
+        <h2>Gentoo Linux</h2>
+        <p>
+          While I may not be a contributor to the project, using Gentoo since
+          2020 has taught me a lot about the managment and maintainance of a
+          Linux system.
+        </p>
+        <p>
+          Gentoo gives the end user a lot more control over the system than most
+          other distributions, owing to Portage (its package manager); this is a
+          double edged sword, since it means you can make your system behave
+          exactly as you want it to, but it also means that you're not careful,
+          you can break your system very easily if not careful.
+        </p>
+        <p>
+          Using Gentoo has given me valuable experience in system maintainance,
+          administration, and rescue, and has taught me three key lessons:
+        </p>
+        <ul>
+          <li>The time saving merit of good debugging proceedures</li>
+          <li>The value of modularity in software</li>
+          <li>The importance of reading the documentation</li>
+        </ul>
+      </article>
+    </main>
+  </body>
+</html>
