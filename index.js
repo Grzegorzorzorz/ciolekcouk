@@ -17,6 +17,8 @@ app.get("*", (req, res) => {
     req.url.endsWith("/") ? path.join(req.url, "index") : req.url
   ).slice(1);
 
+  url = url.split("?")[0];
+
   res.render(url, {});
 });
 
