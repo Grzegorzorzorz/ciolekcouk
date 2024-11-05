@@ -14,28 +14,16 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.set("view engine", "ejs");
 
-app.use((req, res, next) => {
-  if (req.url.endsWith("favicon.ico")) {
-    next();
-    return;
-  }
-
-  if (
-    fs.existsSync(path.join(app.get("views"), req.url)) ||
-    fs.existsSync(path.join(app.get("views"), req.url + ".ejs"))
-  ) {
-    next();
-  } else {
-    res
-      .status(404)
-      .render("partials/error", { errorCode: 404, msg: "Page not found." });
-  }
-});
-
 app.get("/partials/error*", (req, res) => {
   res
     .status(418)
     .render("partials/error", { errorCode: "418", msg: "I am a tea pot!" });
+});
+
+app.get("/partials/*", (req, res) => {
+  res
+    .status(403)
+    .render("partials/error", { errorCode: "403", msg: "Forbidden." });
 });
 
 app.get("*", (req, res) => {
@@ -43,7 +31,18 @@ app.get("*", (req, res) => {
     .slice(1)
     .split("?")[0];
 
-  res.render(url, {});
+  res.render(url);
+});
+
+app.use((err, req, res, next) => {
+  res
+    .status(404)
+    .render("partials/error", { errorCode: 404, msg: "Page not found." });
+});
+
+app.use((err, req, res, next) => {
+  res.status(500);
+  res.send("Internal server error.");
 });
 
 const port = process.env.PORT || 8080;
