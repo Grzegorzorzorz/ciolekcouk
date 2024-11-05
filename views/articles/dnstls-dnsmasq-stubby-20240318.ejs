@@ -11,7 +11,7 @@
     <main>
       <%- include("../partials/nav") -%>
       <article>
-        <h2>DoT: Setting up DNS over TLS on OpenRC</h2>
+        <h1>DoT: Setting up DNS over TLS on OpenRC</h1>
         <p>
           A few weeks ago I set up DNS over TLS (DoT) on my OpenRC Gentoo
           machine, and want to share the process since it's not as straight
@@ -24,7 +24,7 @@
           encryption at all.
         </p>
 
-        <h3>Overview</h3>
+        <h2>Overview</h2>
         <p>The basic steps are as follows:</p>
         <ul>
           <li>Set up <a href="https://dnsmasq.org/doc.html">Dnsmasq</a></li>
@@ -36,7 +36,7 @@
           </li>
           <li>Configure DNS for system connections</li>
         </ul>
-        <h3>Setting up Dnsmasq</h3>
+        <h2>Setting up Dnsmasq</h2>
         <p>
           I believe that Dnsmasq is not strictly necessary for this setup, but
           it provides a few key benefits, namely DNS caching, which reduces
@@ -53,7 +53,7 @@
           recommend that you back up/rename it, since we'll be creating a new
           one from scratch.
         </p>
-        <h4>Configuration</h4>
+        <h3>Configuration</h3>
         <p>In my case <code>/etc/dnsmasq.conf</code> contains the following:</p>
         <pre><code>no-resolv
 server=127.0.0.1#53000
@@ -71,7 +71,7 @@ bind-interfaces</code></pre>
           diffrent port if that is unavailable on your system. Make sure that
           you do not use port 53, as that is what Dnsmasq uses.
         </p>
-        <h3>Setting up Stubby</h3>
+        <h2>Setting up Stubby</h2>
         <p>
           Stubby is the DNS resolver that I use for DoT, namely for the that
           fact it supports it.
@@ -82,7 +82,7 @@ bind-interfaces</code></pre>
           install like normal:
         </p>
         <pre><code>emerge -av net-dns/getdns</code></pre>
-        <h4>Configuration</h4>
+        <h3>Configuration</h3>
         <p>
           Stubby is configured in <code>/etc/stubby/stubby.yml</code>. Similarly
           to Dnsmasq, it may be a good idea to back up/rename the original
@@ -119,7 +119,7 @@ listen_addresses:
 upstream_recursive_servers:
   - address_data: 116.202.176.26
     tls_auth_name: "dot.libredns.gr"</code></pre>
-        <h4><code>edns_client_subnet_private</code></h4>
+        <h3><code>edns_client_subnet_private</code></h3>
         <p>
           This option I <em>strongly</em> suggest you leave as is. When
           <code>0</code>, it enables support for resolvers that send ECS, which
@@ -132,7 +132,7 @@ upstream_recursive_servers:
           as geographically relevant. I recommend this and setting seach engine
           options instead.
         </p>
-        <h4><code>round_robin_upstreams</code></h4>
+        <h3><code>round_robin_upstreams</code></h3>
         <p>
           If you only have servers that you trust equally, you can set this to
           <code>1</code> instead, since it will distribute queries between them.
@@ -142,12 +142,12 @@ upstream_recursive_servers:
           that are a bit less privacy respecting, you'll want to keep this as
           <code>0</code>, and order them from most trustworthy to least.
         </p>
-        <h4><code>listen_addresses</code></h4>
+        <h3><code>listen_addresses</code></h3>
         <p>
           If you can't use port 53000 for Stubby, change it to the number you
           set in <code>/etc/dnsmasq.conf</code>
         </p>
-        <h3>Configuring DNS for system connections</h3>
+        <h2>Configuring DNS for system connections</h2>
         <p>
           Now that everything is set up, we can enable Dnsmasq and Stubby to
           start at boot:
@@ -187,7 +187,7 @@ method=auto</code></pre>
           reboot, and it should work. In my case:
         </p>
         <pre><code>rc-service NetworkManager restart</code></pre>
-        <h3>Summary</h3>
+        <h2>Summary</h2>
         <p>
           We have now set up Dnsmasq to use Stubby as a resolver, configured our
           connections to use our local Dnsmasq server for DNS resolution, and
