@@ -20,7 +20,7 @@ app.get("/partials/error*", (req, res) => {
     .render("partials/error", { errorCode: "418", msg: "I am a tea pot!" });
 });
 
-app.get("/partials/*", (req, res) => {
+app.get("/partials*", (req, res) => {
   res
     .status(403)
     .render("partials/error", { errorCode: "403", msg: "Forbidden." });
