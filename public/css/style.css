@@ -41,8 +41,8 @@ code {
 }
 
 nav {
-  width: 10%;
-  min-width: 20ch;
+  width: 5%;
+  min-width: 15ch;
   padding-right: 3ch;
   overflow: clip;
 }
