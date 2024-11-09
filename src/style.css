@@ -93,21 +93,6 @@
     @apply print:flex-none print:overflow-clip;
   }
 
-  header {
-    @apply w-full py-4 shadow-md my-0 text-center;
-    h1 {
-      @apply w-full text-4xl font-bold my-0;
-      @apply md:pl-8 md:text-left;
-      @apply print:pl-0;
-    }
-  }
-
-  nav {
-    @apply max-w-3xl border-b px-8 pb-8 text-center;
-    @apply md:border-b-0 md:pb-0 md:text-left;
-    @apply print:size-0 print:hidden print:border-0;
-  }
-
   article {
     @apply mx-auto px-8 w-full max-w-3xl h-fit pb-20;
     @apply md:mx-0 md:border-x;
