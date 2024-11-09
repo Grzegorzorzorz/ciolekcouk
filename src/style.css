@@ -88,7 +88,7 @@
   }
 
   main {
-    @apply flex flex-1 flex-col overflow-y-auto;
+    @apply flex flex-1 flex-col h-screen overflow-y-auto;
     @apply md:flex-row md:justify-start;
     @apply print:flex-none print:overflow-clip;
   }
@@ -109,7 +109,7 @@
   }
 
   article {
-    @apply mx-auto px-8 w-full max-w-3xl h-fit min-h-full pb-20;
+    @apply mx-auto px-8 w-full max-w-3xl h-fit pb-20;
     @apply md:mx-0 md:border-x;
     @apply print:p-0 print:mx-0;
   }

@@ -684,6 +684,7 @@ body {
 
 main {
   display: flex;
+  height: 100vh;
   flex: 1 1 0%;
   flex-direction: column;
   overflow-y: auto;
@@ -775,7 +776,6 @@ article {
   margin-right: auto;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: 100%;
   width: 100%;
   max-width: 48rem;
   padding-left: 2rem;
@@ -918,10 +918,6 @@ pre {
 
 .h-screen {
   height: 100vh;
-}
-
-.min-h-full {
-  min-height: 100%;
 }
 
 .w-11\/12 {
