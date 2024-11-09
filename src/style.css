@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-Black.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-BlackItalic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-BoldItalic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-Italic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-Light.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: italic;
+    font-weight: 300;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-LightItalic.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-Thin.ttf");
+  }
+
+  @font-face {
+    font-family: "Lato";
+    font-style: italic;
+    font-weight: 200;
+    font-display: swap;
+    src: url("/resources/fonts/Lato-ThinItalic.ttf");
+  }
+
+  body {
+    @apply flex flex-col h-screen overflow-hidden font-sans;
+  }
+
+  main {
+    @apply flex flex-1 flex-col overflow-y-auto;
+    @apply md:flex-row md:justify-start;
+    @apply print:flex-none print:overflow-clip;
+  }
+
+  header {
+    @apply w-full py-4 shadow-md my-0 text-center;
+    h1 {
+      @apply w-full text-4xl font-bold my-0;
+      @apply md:pl-8 md:text-left;
+      @apply print:pl-0;
+    }
+  }
+
+  nav {
+    @apply max-w-3xl border-b px-8 pb-8 text-center;
+    @apply md:border-b-0 md:pb-0 md:text-left;
+    @apply print:size-0 print:hidden print:border-0;
+  }
+
+  article {
+    @apply mx-auto px-8 w-full max-w-3xl h-fit min-h-full;
+    @apply md:mx-0 md:border-x;
+    @apply print:p-0 print:mx-0;
+  }
+
+  h1 {
+    @apply text-3xl font-bold my-4;
+  }
+
+  h2 {
+    @apply text-2xl font-bold my-4;
+  }
+
+  h3 {
+    @apply text-xl font-bold my-4;
+  }
+
+  p {
+    @apply my-4;
+  }
+
+  a {
+    @apply text-blue-500;
+    @apply hover:underline;
+  }
+
+  ul {
+    @apply list-disc list-inside indent-2;
+  }
+
+  table {
+    @apply border p-1;
+    th,
+    td {
+      @apply border py-2 px-6;
+    }
+  }
+
+  figcaption {
+    @apply justify-center text-center text-gray-500 mx-auto;
+  }
+
+  pre {
+    @apply p-4 border rounded-md overflow-x-auto w-11/12 mx-auto;
+    @apply bg-gray-800 text-white;
+    @apply print:text-sm;
+  }
+}
