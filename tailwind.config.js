@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {},
     fontFamily: {
-      sans: ["Lato", "Tachoma", "Verdana", "Arial"],
+      sans: ["Lato", "Tachoma", "Verdana", "sans-serif"],
     },
   },
   plugins: [],
