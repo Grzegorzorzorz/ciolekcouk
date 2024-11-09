@@ -780,6 +780,7 @@ article {
   max-width: 48rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
@@ -902,16 +903,6 @@ pre {
   margin-bottom: 0px;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.my-8 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-}
-
 .flex {
   display: flex;
 }
@@ -927,6 +918,10 @@ pre {
 
 .h-screen {
   height: 100vh;
+}
+
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-11\/12 {

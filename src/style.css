@@ -109,7 +109,7 @@
   }
 
   article {
-    @apply mx-auto px-8 w-full max-w-3xl h-fit min-h-full;
+    @apply mx-auto px-8 w-full max-w-3xl h-fit min-h-full pb-20;
     @apply md:mx-0 md:border-x;
     @apply print:p-0 print:mx-0;
   }
