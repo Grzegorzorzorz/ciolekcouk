@@ -133,7 +133,7 @@
   }
 
   figcaption {
-    @apply justify-center text-center text-gray-500 mx-auto;
+    @apply justify-center text-center text-gray-600 mx-auto italic text-sm;
   }
 
   pre {

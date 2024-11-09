@@ -154,7 +154,7 @@ html,
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: sans-serif, Lato, Tachoma, Verdana, Arial;
+  font-family: Lato, Tachoma, Verdana, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -679,7 +679,7 @@ body {
   height: 100vh;
   flex-direction: column;
   overflow: hidden;
-  font-family: sans-serif, Lato, Tachoma, Verdana, Arial;
+  font-family: Lato, Tachoma, Verdana, sans-serif;
 }
 
 main {
@@ -801,8 +801,11 @@ figcaption {
   margin-right: auto;
   justify-content: center;
   text-align: center;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-style: italic;
   --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 pre {
@@ -934,6 +937,11 @@ pre {
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
 .p-4 {
   padding: 1rem;
 }
@@ -1013,6 +1021,11 @@ pre {
 .text-gray-500 {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
+}
+
+.text-gray-600 {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity));
 }
 
 .shadow-md {
