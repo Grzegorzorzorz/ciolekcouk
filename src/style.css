@@ -84,17 +84,17 @@
   }
 
   body {
-    @apply flex flex-col h-screen overflow-hidden font-sans;
+    @apply font-sans;
   }
 
   main {
-    @apply flex flex-1 flex-col h-screen overflow-y-auto;
+    @apply flex flex-1 flex-col z-0 border-0 p-0 m-0 bg-gray-100 overflow-clip;
     @apply md:flex-row md:justify-start;
     @apply print:flex-none print:overflow-clip;
   }
 
   article {
-    @apply mx-auto px-8 w-full max-w-3xl h-fit pb-20;
+    @apply bg-gray-50 mx-auto px-8 w-full max-w-3xl min-h-screen pb-20;
     @apply md:mx-0 md:border-x;
     @apply print:p-0 print:mx-0;
   }
