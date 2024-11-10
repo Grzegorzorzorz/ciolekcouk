@@ -861,15 +861,6 @@ pre {
   margin-bottom: 0px;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-.mb-4 {
-  margin-bottom: 1rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -884,11 +875,6 @@ pre {
 
 .hidden {
   display: none;
-}
-
-.size-0 {
-  width: 0px;
-  height: 0px;
 }
 
 .h-screen {
@@ -1010,6 +996,10 @@ pre {
 
 .p-4 {
   padding: 1rem;
+}
+
+.p-8 {
+  padding: 2rem;
 }
 
 .px-8 {
