@@ -8,10 +8,13 @@
   </head>
   <body>
     <%- include("header") -%>
-    <div class="px-8">
-      <h1 class="text-3xl font-bold">Error <%= errorCode %></h1>
-      <p><%= msg %></p>
-      <p><a href="/">Back to civilisation</a>.</p>
-    </div>
+    <main>
+      <div class="px-8 h-screen">
+        <h1 class="text-3xl font-bold">Error <%= errorCode %></h1>
+        <p><%= msg %></p>
+        <p><a href="/">Back to civilisation</a>.</p>
+      </div>
+    </main>
+    <%- include("footer") -%>
   </body>
 </html>
