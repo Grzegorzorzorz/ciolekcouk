@@ -886,6 +886,11 @@ pre {
   display: none;
 }
 
+.size-0 {
+  width: 0px;
+  height: 0px;
+}
+
 .h-screen {
   height: 100vh;
 }
