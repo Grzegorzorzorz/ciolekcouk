@@ -129,6 +129,15 @@
     @apply hover:no-underline;
   }
 
+  h4 {
+    @apply text-lg font-bold my-4;
+  }
+
+  h4 a {
+    @apply text-lg font-bold my-4 text-black;
+    @apply hover:no-underline;
+  }
+
   p {
     @apply my-4;
   }
