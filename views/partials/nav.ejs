@@ -5,10 +5,10 @@
     <li>
       <h2 class="menu-title">Navigation</h2>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/contact/">Contact</a></li>
-        <li><a href="/articles/">Articles</a></li>
-        <li><a href="/projects/">Projects</a></li>
+        <%- include("navLink", {href: "/", display: "Home"}) -%> <%-
+        include("navLink", {href: "/contact/", display: "Contact"}) -%> <%-
+        include("navLink", {href: "/articles/", display: "Articles"}) -%> <%-
+        include("navLink", {href: "/projects/", display: "Projects"}) -%>
       </ul>
     </li>
     <li>
