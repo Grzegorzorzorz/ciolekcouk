@@ -83,89 +83,46 @@
     src: url("/resources/fonts/Lato-ThinItalic.ttf");
   }
 
+  ::selection {
+    @apply text-accent-content bg-accent;
+  }
+
   html {
-    @apply scroll-pt-16;
+    @apply scroll-pt-20;
   }
 
   body {
-    @apply font-sans;
   }
 
   main {
-    @apply flex flex-1 flex-col z-0 border-0 p-0 m-0 bg-gray-100 overflow-clip;
-    @apply md:flex-row md:justify-start;
-    @apply print:flex-none print:overflow-clip;
+    @apply flex flex-1 flex-col;
+    @apply md:flex-row;
   }
 
   article {
-    @apply bg-gray-50 mx-auto px-8 w-full max-w-3xl min-h-screen pb-20;
-    @apply md:mx-0 md:border-x;
-    @apply print:p-0 print:mx-0;
+    @apply prose bg-base-100 px-8 max-w-4xl w-full;
+    @apply min-h-screen pb-20 pt-8;
+    @apply border-base-300 border-r;
+    @apply print:max-w-max print:border-0;
   }
 
-  h1 {
-    @apply text-3xl font-bold my-4;
-  }
-
-  h1 a {
-    @apply text-3xl font-bold my-4 text-black;
-  }
-
-  h2 {
-    @apply text-2xl font-bold my-4;
+  .prose a {
+    @apply link link-primary;
+    @apply no-underline;
   }
 
   h2 a {
-    @apply text-2xl font-bold my-4 text-black;
-    @apply hover:no-underline;
-  }
-
-  h3 {
-    @apply text-xl font-bold my-4;
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
   }
 
   h3 a {
-    @apply text-xl font-bold my-4 text-black;
-    @apply hover:no-underline;
-  }
-
-  h4 {
-    @apply text-lg font-bold my-4;
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
   }
 
   h4 a {
-    @apply text-lg font-bold my-4 text-black;
-    @apply hover:no-underline;
-  }
-
-  p {
-    @apply my-4;
-  }
-
-  a {
-    @apply text-blue-500;
-    @apply hover:underline;
-  }
-
-  ul {
-    @apply list-disc list-inside indent-2;
-  }
-
-  table {
-    @apply border p-1;
-    th,
-    td {
-      @apply border py-2 px-6;
-    }
-  }
-
-  figcaption {
-    @apply justify-center text-center text-gray-600 mx-auto italic text-sm;
-  }
-
-  pre {
-    @apply p-4 border rounded-md overflow-x-auto w-11/12 mx-auto;
-    @apply bg-gray-800 text-white;
-    @apply print:text-sm;
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
   }
 }

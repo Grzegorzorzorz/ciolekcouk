@@ -31,6 +31,7 @@ app.get("*", (req, res) => {
     .slice(1)
     .split("?")[0];
 
+  res.locals.url = req.url;
   res.render(url);
 });
 

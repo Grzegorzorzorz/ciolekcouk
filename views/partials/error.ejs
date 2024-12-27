@@ -10,10 +10,12 @@
   <body>
     <%- include("header") -%>
     <main>
-      <div class="px-8 h-screen">
-        <h1 class="text-3xl font-bold">Error <%= errorCode %></h1>
-        <p><%= msg %></p>
-        <p><a href="/">Back to civilisation</a>.</p>
+      <div class="px-8 max-w-4xl w-full min-h-screen pt-8 pb-20">
+        <div class="prose">
+          <h1 class>Error <%= errorCode %></h1>
+          <p><%= msg %></p>
+          <p><a class="text-info" href="/">Back to civilisation</a>.</p>
+        </div>
       </div>
     </main>
     <%- include("footer") -%>

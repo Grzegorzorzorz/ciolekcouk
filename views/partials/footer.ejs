@@ -1,17 +1,21 @@
-<footer class="border-t text-sm p-8 print:hidden print:size-0">
-  <div class="mx-auto max-w-2xl">
-    <div class="text-center font-normal w-fit mx-auto">
-      Copyright &copy; 2024 Grzegorz Ciołek
-    </div>
-    <div class="text-center w-fit m-0 mx-auto mt-4 font-light">
-      <div class="w-fit mx-auto">
-        This website is distributed under the
-        <a href="/licence">MIT Licence</a>.
-      </div>
-      <div class="w-fit mx-auto">
-        Licences for third-party works can be found
-        <a href="/licence-third-party">here</a>.
-      </div>
-    </div>
-  </div>
+<footer
+  class="footer footer-center border-t border-base-300 bg-base-100 print:hidden"
+>
+  <aside class="my-8">
+    <p>Copyright &copy; <%= new Date().getFullYear() %> Grzegorz Ciołek</p>
+    <p class="font-light">
+      This website is distributed under the
+      <a class="text-primary link link-primary no-underline" href="/licence"
+        >MIT Licence</a
+      >.
+    </p>
+    <p class="font-light">
+      Third-party works are distributed under
+      <a
+        class="text-primary link link-primary no-underline"
+        href="/licence-third-party"
+        >various licences</a
+      >.
+    </p>
+  </aside>
 </footer>

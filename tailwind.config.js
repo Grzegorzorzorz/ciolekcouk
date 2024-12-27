@@ -7,5 +7,8 @@ export default {
       sans: ["Lato", "Tachoma", "Verdana", "sans-serif"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    themes: ["cmyk", "dark"],
+  },
 };
