@@ -103,7 +103,7 @@
     @apply prose bg-base-100 px-8 max-w-4xl w-full;
     @apply min-h-screen pb-20 pt-8;
     @apply border-base-300 border-r;
-    @apply print:max-w-max print:border-0;
+    @apply print:max-w-max print:border-0 print:min-h-fit print:pb-0;
   }
 
   .prose a {
