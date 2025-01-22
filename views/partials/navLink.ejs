@@ -1,3 +1,4 @@
-<li><a
-		<% if (url == href) { %>class="active" <% } %>
-		href="<%- href %>"><%= display %></a></li>
+<% locals.class = ""; if (url.slice(0, href.length) == href) { locals.class =
+"active" } if (href == "/" && url.length > 1) { locals.class = ""; } %>
+
+<li><a class="<%- locals.class %>" href="<%- href %>"><%= display %></a></li>
