@@ -36,9 +36,22 @@ app.get("*", (req, res) => {
 });
 
 app.use((err, req, res, next) => {
+  if (err.name !== "Error") {
+    next(err);
+    return;
+  }
+
   res
     .status(404)
     .render("partials/error", { errorCode: 404, msg: "Page not found." });
+});
+
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).render("partials/error", {
+    errorCode: "500",
+    msg: "Internal server error.",
+  });
 });
 
 app.use((err, req, res, next) => {
