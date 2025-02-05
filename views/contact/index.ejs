@@ -1,46 +1,32 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Contact</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <%- include("../partials/icons") -%>
-  </head>
-  <body>
-    <%- include("../partials/header") -%>
-    <main>
-      <%- include("../partials/nav") -%>
-      <article>
-        <div class="pb-4">
-          <h1>Contact</h1>
-          <ul>
-            <li>
-              <strong>Email</strong>:
-              <a href="mailto:contact@ciolek.co.uk">contact@ciolek.co.uk</a>
-              &lt;<a href="/resources/keys/contact.asc">PGP key</a>&gt;
-            </li>
-            <li>
-              <strong>Mobile</strong>:
-              <a href="tel:+447599857384">+44 7599 857 384</a>
-            </li>
-          </ul>
-          <h2>University</h2>
-          <ul>
-            <li>
-              <strong>Email</strong>:
-              <a href="mailto:grc22@aber.ac.uk">grc22@aber.ac.uk</a>
-              &lt;<a href="/resources/keys/grc22.asc">PGP key</a>&gt;
-            </li>
-          </ul>
-        </div>
-        <div class="divider"></div>
-        <p>
-          Using PGP? Please make sure you attach your public key if you'd like
-          an encrypted response!
-        </p>
-      </article>
-    </main>
-    <%- include("../partials/footer") -%>
-  </body>
-</html>
+<%- contentFor("head") %>
+<title>Contact</title>
+<%- contentFor("body") %>
+<article>
+  <div class="pb-4">
+    <h1>Contact</h1>
+    <ul>
+      <li>
+        <strong>Email</strong>:
+        <a href="mailto:contact@ciolek.co.uk">contact@ciolek.co.uk</a>
+        &lt;<a href="/resources/keys/contact.asc">PGP key</a>&gt;
+      </li>
+      <li>
+        <strong>Mobile</strong>:
+        <a href="tel:+447599857384">+44 7599 857 384</a>
+      </li>
+    </ul>
+    <h2>University</h2>
+    <ul>
+      <li>
+        <strong>Email</strong>:
+        <a href="mailto:grc22@aber.ac.uk">grc22@aber.ac.uk</a>
+        &lt;<a href="/resources/keys/grc22.asc">PGP key</a>&gt;
+      </li>
+    </ul>
+  </div>
+  <div class="divider"></div>
+  <p>
+    Using PGP? Please make sure you attach your public key if you'd like an
+    encrypted response!
+  </p>
+</article>

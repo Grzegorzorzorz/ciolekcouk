@@ -1,60 +1,46 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <title>Articles</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/css/style.css" />
-    <%- include("../partials/icons") -%>
-  </head>
-  <body>
-    <%- include("../partials/header") -%>
-    <main>
-      <%- include("../partials/nav") -%>
-      <article>
-        <h1>Articles</h1>
-        <p>
-          These articles mostly fall into two categories: things I find cool or
-          are working on, or issues I've run into on my system that I feel
-          others could benefit from the solution to.
-        </p>
-        <p>If it falls into the latter category, follow at your own risk!</p>
-        <table class="mx-auto">
-          <tr>
-            <th>Date</th>
-            <th>Article</th>
-          </tr>
-          <tr>
-            <td>2024-11-04</td>
-            <td>
-              <a href="migration-express-20241104"> Migrating to Express.js</a>
-            </td>
-          </tr>
-          <tr>
-            <td>2024-10-07</td>
-            <td>
-              <a href="grzetris-release-20241007"> Project: grzetris</a>
-            </td>
-          </tr>
-          <tr>
-            <td>2024-03-18</td>
-            <td>
-              <a href="dnstls-dnsmasq-stubby-20240318">
-                DoT: Setting up DNS over TLS on OpenRC</a
-              >
-            </td>
-          </tr>
-          <tr>
-            <td>2024-03-12</td>
-            <td>
-              <a href="hyprland-nvidia-prime-20240312">
-                Hyprland: Nvidia PRIME and suspend issues</a
-              >
-            </td>
-          </tr>
-        </table>
-      </article>
-    </main>
-    <%- include("../partials/footer") -%>
-  </body>
-</html>
+<%- contentFor("head") %>
+<title>Articles</title>
+<%- contentFor("body") %>
+<article>
+  <h1>Articles</h1>
+  <p>
+    These articles mostly fall into two categories: things I find cool or are
+    working on, or issues I've run into on my system that I feel others could
+    benefit from the solution to.
+  </p>
+  <p>If it falls into the latter category, follow at your own risk!</p>
+  <table class="mx-auto">
+    <tr>
+      <th>Date</th>
+      <th>Article</th>
+    </tr>
+    <tr>
+      <td>2024-11-04</td>
+      <td>
+        <a href="migration-express-20241104"> Migrating to Express.js</a>
+      </td>
+    </tr>
+    <tr>
+      <td>2024-10-07</td>
+      <td>
+        <a href="grzetris-release-20241007"> Project: grzetris</a>
+      </td>
+    </tr>
+    <tr>
+      <td>2024-03-18</td>
+      <td>
+        <a href="dnstls-dnsmasq-stubby-20240318">
+          DoT: Setting up DNS over TLS on OpenRC</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>2024-03-12</td>
+      <td>
+        <a href="hyprland-nvidia-prime-20240312">
+          Hyprland: Nvidia PRIME and suspend issues</a
+        >
+      </td>
+    </tr>
+  </table>
+</article>
