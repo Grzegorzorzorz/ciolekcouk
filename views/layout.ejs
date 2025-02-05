@@ -8,7 +8,7 @@
     <%- include("partials/icons") %>
   </head>
   <body>
-    <%- include("partials/header") %>
+    <%- include("partials/header") %> <% if (locals.nav === true) { %>
     <div class="drawer md:animate-none md:drawer-open">
       <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
       <div class="drawer-side z-50 md:top-16 md:z-0 print:hidden">
@@ -23,6 +23,8 @@
         <main class="border-base-300 border-x print:border-0"><%- body %></main>
       </div>
     </div>
-    <%- include("partials/footer") %>
+    <% } else { %>
+    <main><%- body %></main>
+    <% } %> <%- include("partials/footer") %>
   </body>
 </html>

@@ -91,14 +91,6 @@
     @apply scroll-pt-20;
   }
 
-  body {
-  }
-
-  main {
-    @apply flex flex-1 flex-col;
-    @apply md:flex-row;
-  }
-
   article {
     @apply prose bg-base-100 px-8 max-w-4xl w-full;
     @apply min-h-screen pb-20 pt-8;
