@@ -1,10 +1,10 @@
 <%- contentFor("head") %>
 <title>Error <%= errorCode %></title>
 <%- contentFor("body") %>
-<div class="px-8 max-w-4xl w-full min-h-screen pt-8 pb-20">
-  <div class="prose">
+<div class="text-center sm:text-left">
+  <div class="prose max-w-none">
     <h1 class>Error <%= errorCode %></h1>
     <p><%= msg %></p>
-    <p><a class="text-info" href="/">Back to civilisation</a>.</p>
   </div>
+  <a class="btn btn-outline mt-8" href="/">Back to civilisation</a>
 </div>
