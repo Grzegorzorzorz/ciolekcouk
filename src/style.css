@@ -86,34 +86,35 @@
   ::selection {
     @apply text-accent-content bg-accent;
   }
-
   html {
     @apply scroll-pt-20;
   }
 
+  .prose h1 a {
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
+  }
+
+  .prose h2 a {
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
+  }
+
+  .prose h3 a {
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
+  }
+
+  .prose h4 a {
+    all: inherit;
+    @apply cursor-pointer hover:text-base-content;
+  }
+  /*
   article {
     @apply pb-16;
     @apply prose bg-base-100 px-8 max-w-4xl w-full;
     @apply print:max-w-max print:border-0 print:min-h-fit print:pb-0;
   }
 
-  .prose a {
-    @apply link link-primary;
-    @apply no-underline;
-  }
-
-  h2 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
-  }
-
-  h3 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
-  }
-
-  h4 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
-  }
+ */
 }

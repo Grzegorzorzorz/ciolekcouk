@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+  <head class="scroll-pt-20">
     <%- head %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,11 +8,16 @@
     <%- include("partials/icons") %>
   </head>
   <body>
+    <a
+      href="#main-content"
+      class="fixed top-0 z-50 left-1/2 -translate-x-1/2 min-w-fit -translate-y-full focus:translate-y-20 transition p-6 rounded-lg text-xl bg-black text-white font-extrabold"
+      >Skip to content</a
+    >
     <%- include("partials/header") %> <% if (locals.nav === true) { %>
-    <div class="drawer md:drawer-open">
+    <div class="drawer lg:drawer-open">
       <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
       <div
-        class="drawer-side z-50 min-h-fit h-screen md:z-0 md:top-16 md:h-[calc(100svh-4rem)]"
+        class="drawer-side z-20 mt-16 lg:mt-0 min-h-fit h-screen lg:z-0 lg:top-16 lg:h-[calc(100svh-4rem)]"
       >
         <label
           for="nav-drawer"
@@ -20,7 +25,7 @@
           class="drawer-overlay print:hidden"
         ></label>
         <aside
-          class="bg-base-100 overflow-y-auto min-h-fit h-screen min-w-72 md:overflow-y-visible md:z-10 md:min-h-0 md:min-w-56 md:h-fit"
+          class="bg-base-100 overflow-y-auto min-h-fit h-[calc(100svh-4rem)] min-w-72 lg:overflow-y-visible lg:z-10 lg:min-h-0 lg:min-w-56 lg:h-fit"
         >
           <div>
             <%- include("partials/nav") %>
@@ -30,14 +35,16 @@
           </div>
         </aside>
       </div>
+      <% } %>
       <div
-        class="drawer-content border-base-300 md:border-x p-0 m-0 w-full max-w-4xl min-h-[calc(100svh-4rem)]"
+        class="drawer-content border-base-300 lg:border-l p-0 mx-auto lg:m-0 max-w-4xl min-h-[calc(100svh-4rem)]"
       >
-        <main class="pt-8"><%- body %></main>
+        <main id="main-content" class="pt-8 pb-20 px-8 w-full">
+          <%- body %>
+        </main>
       </div>
+      <% if (locals.nav === true) { %>
     </div>
-    <% } else { %>
-    <main><%- body %></main>
     <% } %> <%- include("partials/footer") %>
   </body>
 </html>
