@@ -11,10 +11,18 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "public")));
 app.use(expressEjsLayouts);
 
 app.set("view engine", "ejs");
+
+app.get("/resources/fonts/*", (req, res) => {
+  res
+    .set({ "Cache-Control": "max-age=15552000" })
+    .sendFile(req.url, { root: path.join(__dirname, "public") });
+  console.log(`sent ${req.url}`);
+});
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/partials/error*", (req, res) => {
   res.locals = {
