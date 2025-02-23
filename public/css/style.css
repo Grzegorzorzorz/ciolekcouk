@@ -3620,6 +3620,10 @@ html:has(.drawer-toggle:checked) {
   top: 0px;
 }
 
+.top-16 {
+  top: 4rem;
+}
+
 .z-20 {
   z-index: 20;
 }
