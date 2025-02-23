@@ -19,7 +19,6 @@ app.get("/resources/fonts/*", (req, res) => {
   res
     .set({ "Cache-Control": "max-age=15552000" })
     .sendFile(req.url, { root: path.join(__dirname, "public") });
-  console.log(`sent ${req.url}`);
 });
 
 app.use(express.static(path.join(__dirname, "public")));
