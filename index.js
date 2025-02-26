@@ -22,7 +22,7 @@ app.set("view engine", "ejs");
 
 app.get("/resources/fonts/*", (req, res) => {
   res
-    .set({ "Cache-Control": "max-age=15552000" })
+    .set({ "Cache-Control": "max-age=15552000, immutable" })
     .sendFile(req.url, { root: path.join(__dirname, "public") });
 });
 
@@ -77,7 +77,9 @@ app.get("/articles(/(index(.ejs)?)?)?", async (req, res) => {
     isSuccess: isSuccess,
   };
 
-  res.render("articles/index.ejs");
+  res
+    .set({ "Cache-Control": "max-age=300, must-revalidate" })
+    .render("articles/index.ejs");
 });
 
 app.get("*", (req, res) => {
@@ -89,7 +91,8 @@ app.get("*", (req, res) => {
     nav: true,
     url: req.url,
   };
-  res.render(url);
+
+  res.set({ "Cache-Control": "max-age=300, must-revalidate" }).render(url);
 });
 
 app.use((err, req, res, next) => {
