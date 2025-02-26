@@ -10,6 +10,7 @@
   </p>
   <p>If it falls into the latter category, follow at your own risk!</p>
 </div>
+<% if (locals.isSuccess) { %>
 <ul class="list bg-base-100 rounded-box border border-base-200">
   <!-- -->
   <% locals.articles.forEach( function(article) { %>
@@ -21,3 +22,14 @@
 				href: article.href }); %>
   <% });%>
 </ul>
+<% } else { %>
+<div class="text-center rounded-box border border-base-200 py-8">
+  <div class="prose mb-4 mx-auto">
+    <h2>Whoops!</h2>
+    <p>Looks like we failed to connect to the articles database.</p>
+    <p>Please try again later.</p>
+    <p>Keeps happening?</p>
+  </div>
+  <a href="/contact/" class="btn btn-info">Let me know!</a>
+</div>
+<% } %>

@@ -56,15 +56,25 @@ app.get("/layout(.ejs)?", (req, res) => {
 });
 
 app.get("/articles(/(index(.ejs)?)?)?", async (req, res) => {
-  const articles = await sql`
-	SELECT title, date, description, href
-	FROM articles
-	ORDER BY date DESC;
-	`;
+  let isSuccess;
+  let articles = [];
+  try {
+    articles = await sql`
+		SELECT title, date, description, href
+		FROM articles
+		ORDER BY date DESC;
+		`;
+    isSuccess = true;
+  } catch (e) {
+    console.error("Failed to connect to articles db.");
+    console.debug(e.stack);
+    isSuccess = false;
+  }
   res.locals = {
     nav: true,
     url: req.url,
     articles: articles,
+    isSuccess: isSuccess,
   };
 
   res.render("articles/index.ejs");
