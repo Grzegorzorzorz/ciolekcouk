@@ -1851,6 +1851,45 @@
     background-image: radial-gradient( circle at 35% 30%, oklch(1 0 0 / calc(var(--depth) * 0.5)), #0000 );
     box-shadow: 0 2px 3px -1px color-mix(in oklab, currentColor calc(var(--depth) * 100%), #0000);
   }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: calc(0.25rem * 2);
+    border-radius: var(--radius-selector);
+    vertical-align: middle;
+    color: var(--color-base-content);
+    border: var(--border) solid var(--badge-color, var(--color-base-200));
+    font-size: 0.875rem;
+    width: fit-content;
+    padding-inline: calc(0.25rem * 3 - var(--border));
+    background-size: auto, calc(var(--noise) * 100%);
+    background-image: none, var(--fx-noise);
+    background-color: var(--badge-color, var(--color-base-100));
+    --size: calc(var(--size-selector, 0.25rem) * 6);
+    height: var(--size);
+    &.badge-outline {
+      color: var(--badge-color, var(--color-base-content));
+      border-color: currentColor;
+      background-color: transparent;
+      background-image: none;
+      box-shadow: none;
+    }
+    &.badge-dash {
+      color: var(--badge-color, var(--color-base-content));
+      background-color: transparent;
+      border-style: dashed;
+      background-image: none;
+      box-shadow: none;
+    }
+    &.badge-soft {
+      color: var(--badge-color, var(--color-base-content));
+      background-color: color-mix( in oklab, var(--badge-color, var(--color-base-content)) 8%, var(--color-base-100) );
+      border-color: color-mix( in oklab, var(--badge-color, var(--color-base-content)) 10%, var(--color-base-100) );
+      background-image: none;
+      box-shadow: none;
+    }
+  }
   .navbar {
     display: flex;
     width: 100%;
@@ -2261,6 +2300,14 @@
   .font-semibold {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
+  }
+  .badge-info {
+    --badge-color: var(--color-info);
+    color: var(--color-info-content);
+  }
+  .badge-primary {
+    --badge-color: var(--color-primary);
+    color: var(--color-primary-content);
   }
   .text-\[color\:--tw-prose-body\] {
     color: --tw-prose-body;
