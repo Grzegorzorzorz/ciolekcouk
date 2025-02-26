@@ -1,10 +1,51 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark;
+}
 
-@source './**/*.{css, js}';
+@source './**/*.{css, js, ejs}';
 
 @theme {
   --font-*: initial;
   --font-sans: Lato, Tachoma, Verdana, sans-serif;
+}
+
+@plugin "daisyui/theme" {
+  name: "warm";
+  default: true;
+  prefersdark: false;
+  color-scheme: "light";
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(98% 0.001 106.423);
+  --color-base-content: oklch(27% 0.041 260.031);
+  --color-primary: oklch(37% 0 0);
+  --color-primary-content: oklch(98% 0.003 247.858);
+  --color-secondary: oklch(55% 0.046 257.417);
+  --color-secondary-content: oklch(98% 0.003 247.858);
+  --color-accent: oklch(89% 0.196 126.665);
+  --color-accent-content: oklch(92% 0.004 286.32);
+  --color-neutral: oklch(37% 0.013 285.805);
+  --color-neutral-content: oklch(98% 0.003 247.858);
+  --color-info: oklch(71% 0.143 215.221);
+  --color-info-content: oklch(27% 0.006 286.033);
+  --color-success: oklch(76% 0.233 130.85);
+  --color-success-content: oklch(27% 0.006 286.033);
+  --color-warning: oklch(82% 0.189 84.429);
+  --color-warning-content: oklch(27% 0.006 286.033);
+  --color-error: oklch(70% 0.191 22.216);
+  --color-error-content: oklch(27% 0.006 286.033);
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 1rem;
+  --size-selector: 1 rem;
+  --size-field: 0.3125rem;
+  --border: 1.5px;
+  --depth: 0;
+  --noise: 0;
 }
 
 /*
@@ -14,7 +55,6 @@
 
   If we ever want to remove these styles, we need to add an explicit border
   color utility to any element that depends on these defaults.
-*/
 @layer base {
   *,
   ::after,
@@ -24,6 +64,7 @@
     border-color: var(--color-gray-200, currentColor);
   }
 }
+ */
 
 @layer base {
   @font-face {
@@ -112,32 +153,28 @@
   html {
     @apply scroll-pt-20;
   }
+}
 
-  .prose h1 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
+@utility grz-menu-md {
+  :where(li:not(.menu-title) > *:not(ul, details, .menu-title)),
+  :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+    @apply rounded-field px-4 py-2;
+    font-size: 0.9rem;
   }
 
-  .prose h2 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
+  .menu-title {
+    @apply px-6 py-3;
   }
+}
 
-  .prose h3 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
+@utility prose {
+  h1,
+  h2,
+  h3,
+  h4 {
+    a {
+      all: inherit;
+      @apply cursor-pointer hover:text-base-content;
+    }
   }
-
-  .prose h4 a {
-    all: inherit;
-    @apply cursor-pointer hover:text-base-content;
-  }
-  /*
-  article {
-    @apply pb-16;
-    @apply prose bg-base-100 px-8 max-w-4xl w-full;
-    @apply print:max-w-max print:border-0 print:min-h-fit print:pb-0;
-  }
-
- */
 }
