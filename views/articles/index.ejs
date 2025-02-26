@@ -1,7 +1,7 @@
 <%- contentFor("head") %>
 <title>Articles</title>
 <%- contentFor("body") %>
-<article class="prose max-w-none">
+<div class="prose max-w-none mb-4">
   <h1>Articles</h1>
   <p>
     These articles mostly fall into two categories: things I find cool or are
@@ -9,38 +9,28 @@
     benefit from the solution to.
   </p>
   <p>If it falls into the latter category, follow at your own risk!</p>
-  <table class="mx-auto">
-    <tr>
-      <th>Date</th>
-      <th>Article</th>
-    </tr>
-    <tr>
-      <td>2024-11-04</td>
-      <td>
-        <a href="migration-express-20241104"> Migrating to Express.js</a>
-      </td>
-    </tr>
-    <tr>
-      <td>2024-10-07</td>
-      <td>
-        <a href="grzetris-release-20241007"> Project: grzetris</a>
-      </td>
-    </tr>
-    <tr>
-      <td>2024-03-18</td>
-      <td>
-        <a href="dnstls-dnsmasq-stubby-20240318">
-          DoT: Setting up DNS over TLS on OpenRC</a
-        >
-      </td>
-    </tr>
-    <tr>
-      <td>2024-03-12</td>
-      <td>
-        <a href="hyprland-nvidia-prime-20240312">
-          Hyprland: Nvidia PRIME and suspend issues</a
-        >
-      </td>
-    </tr>
-  </table>
-</article>
+</div>
+<ul class="list bg-base-100 rounded-box border border-base-200">
+  <!-- -->
+  <%- include("../partials/articleListItem", {
+		title: "Migrating to Express.js",
+		date: "2024-11-04",
+		desc: "I go over the justification, process, and next steps after migrating this website to Express.js.",
+		href: "migration-express-20241104.ejs" }) %>
+  <%-
+    include("../partials/articleListItem", {
+		title: "Project: grzetris",
+		date: "2024-10-07",
+		desc: "I announce grzetris! A *tris clone that I've been working on in my free time.",
+		href: "grzetris-release-20241007.ejs" }) %>
+  <%- include("../partials/articleListItem", {
+		title: "DoT: Setting up DNS over TLS on OpenRC",
+		date: "2024-10-07",
+		desc: "I go over the process of setting up DNS over TLS on my OpenRC gentoo machine using Stubby, Dnsmasq and NetworkManager.", href: "dnstls-dnsmasq-stubby-20240318.ejs" }) %>
+  <%-
+    include("../partials/articleListItem", {
+		title: "Hyprland: Nvidia PRIME and suspend issues",
+		date: "2024-03-12",
+		desc: "I discuss the issues I had with my laptop's Nvidia card on Hyprland, GPU suspend problems, and the solutions I ended finding for them.",
+		href: "hyprland-nvidia-prime-20240312.ejs" }) %>
+</ul>
