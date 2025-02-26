@@ -12,7 +12,8 @@
 </div>
 <ul class="list bg-base-100 rounded-box border border-base-200">
   <!-- -->
-  <%- include("../partials/articleListItem", {
+  <%-
+		include("../partials/articleListItem", {
 		title: "Migrating to Express.js",
 		date: "2024-11-04",
 		desc: "I go over the justification, process, and next steps after migrating this website to Express.js.",
@@ -23,10 +24,12 @@
 		date: "2024-10-07",
 		desc: "I announce grzetris! A *tris clone that I've been working on in my free time.",
 		href: "grzetris-release-20241007.ejs" }) %>
-  <%- include("../partials/articleListItem", {
+  <%-
+		include("../partials/articleListItem", {
 		title: "DoT: Setting up DNS over TLS on OpenRC",
 		date: "2024-03-18",
-		desc: "I go over the process of setting up DNS over TLS on my OpenRC gentoo machine using Stubby, Dnsmasq and NetworkManager.", href: "dnstls-dnsmasq-stubby-20240318.ejs" }) %>
+		desc: "I go over the process of setting up DNS over TLS on my OpenRC gentoo machine using Stubby, Dnsmasq and NetworkManager.",
+		href: "dnstls-dnsmasq-stubby-20240318.ejs" }) %>
   <%-
     include("../partials/articleListItem", {
 		title: "Hyprland: Nvidia PRIME and suspend issues",
