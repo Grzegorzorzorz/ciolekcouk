@@ -5,8 +5,13 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 
+import postgres from "postgres";
+import "dotenv/config";
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const sql = postgres(process.env.DATABASE_URL, { ssl: "verify-full" });
 
 const app = express();
 
@@ -48,6 +53,21 @@ app.get("/layout(.ejs)?", (req, res) => {
   res
     .status(400)
     .render("partials/error", { errorCode: "400", msg: "Bad request." });
+});
+
+app.get("/articles(/(index(.ejs)?)?)?", async (req, res) => {
+  const articles = await sql`
+	SELECT title, date, description, href
+	FROM articles
+	ORDER BY date DESC;
+	`;
+  res.locals = {
+    nav: true,
+    url: req.url,
+    articles: articles,
+  };
+
+  res.render("articles/index.ejs");
 });
 
 app.get("*", (req, res) => {
