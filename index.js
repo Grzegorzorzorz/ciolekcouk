@@ -11,8 +11,6 @@ import "dotenv/config";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const sql = postgres(process.env.DATABASE_URL, { ssl: "verify-full" });
-
 const app = express();
 
 app.set("views", path.join(__dirname, "views"));
@@ -56,20 +54,25 @@ app.get("/layout(.ejs)?", (req, res) => {
 });
 
 app.get("/articles(/(index(.ejs)?)?)?", async (req, res) => {
+  const sql = postgres(process.env.DATABASE_URL, { ssl: "verify-full" });
+
   let isSuccess;
   let articles = [];
+
   try {
     articles = await sql`
 		SELECT title, date, description, href
 		FROM articles
 		ORDER BY date DESC;
 		`;
+
     isSuccess = true;
   } catch (e) {
     console.error("Failed to connect to articles db.");
     console.debug(e.stack);
     isSuccess = false;
   }
+
   res.locals = {
     nav: true,
     url: req.url,
