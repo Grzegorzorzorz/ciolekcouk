@@ -49,7 +49,7 @@
 }
 
 @plugin "daisyui/theme" {
-  name: "warm-dark";
+  name: "warmdark";
   default: false;
   prefersdark: true;
   color-scheme: "dark";
