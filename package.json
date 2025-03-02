@@ -1,26 +1,28 @@
 {
-  "name": "ciolekcouk",
-  "version": "1.0.0",
-  "main": "index.js",
-  "type": "module",
+  "name": "ciolek.co.uk",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "run": "node ./index.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "author": "Grzegorz Ciołek",
-  "license": "MIT",
-  "description": "",
   "dependencies": {
-    "dotenv": "^16.4.7",
-    "ejs": "^3.1.10",
-    "express": "^4.21.1",
-    "express-ejs-layouts": "^2.5.1",
-    "postgres": "^3.4.5"
+    "next": "15.2.0",
+    "postgres": "^3.4.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.15",
-    "daisyui": "^5.0.0-beta.8",
-    "prettier-plugin-ejs": "^1.0.3",
-    "tailwindcss": "^4.0.9"
+    "@svgr/webpack": "^8.1.0",
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "daisyui": "^5.0.0-beta.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
