@@ -6,8 +6,10 @@ export default function Article(props: any) {
   return (
     <>
       <Prose>
-        <h1>{props.blok.title}</h1>
-        {render(props.blok.body, rendererOptions)}
+        <article>
+          <h1>{props.blok.title}</h1>
+          {render(props.blok.body, rendererOptions)}
+        </article>
       </Prose>
     </>
   );
