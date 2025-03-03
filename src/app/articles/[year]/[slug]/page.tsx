@@ -2,13 +2,17 @@ import { getStoryblokApi } from "@/lib/storyblok";
 import { StoryblokStory } from "@storyblok/react/rsc";
 
 async function fetchArticle(year: string, slug: string) {
+  let version: "published" | "draft" | undefined = undefined;
+  switch (process.env.STORYBLOK_VERSION) {
+    case "published":
+    case "draft":
+      version = process.env.STORYBLOK_VERSION;
+  }
+
   const storyblockApi = getStoryblokApi();
-  const response = await storyblockApi.get(
-    `cdn/stories/articles/${year}/${slug}`,
-    {
-      version: "draft",
-    },
-  );
+  const response = await storyblockApi.getStory(`articles/${year}/${slug}`, {
+    version: version,
+  });
 
   return response.data.story;
 }
