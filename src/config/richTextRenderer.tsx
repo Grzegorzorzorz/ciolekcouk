@@ -10,7 +10,7 @@ export const rendererOptions: any = {
   nodeResolvers: {
     [NODE_IMAGE]: (children: React.ReactNode, props: any) => {
       const { src } = props;
-      return <img src={src} className="w-4/5 mx-auto" />;
+      return <img src={src} className="rounded-md w-4/5 mx-auto" />;
     },
     [NODE_LI]: (children: any) => {
       return (
