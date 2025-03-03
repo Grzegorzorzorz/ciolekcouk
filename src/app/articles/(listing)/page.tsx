@@ -12,25 +12,67 @@ import Loading from "./loading";
 
 interface Article {
   id: number;
-  title: string;
-  date: string;
-  description: string;
-  href: string;
+  name: string;
+  sort_by_date: string | null;
+  full_slug: string;
+  content: {
+    summary: string;
+  };
 }
 
 async function fetchArticles(): Promise<Article[]> {
-  if (process.env.DATABASE_URL === undefined) {
-    throw new Error("Database URL not defined");
-  }
+  const url = "https://gapi.storyblok.com/v1/api";
+  let headers = new Headers();
+  headers.set("token", `${process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN}`);
+  headers.set("version", `${process.env.STORYBLOK_VERSION}`);
+  headers.set("Content-Type", "application/json");
+  console.log(headers);
 
-  const sql = postgres(process.env.DATABASE_URL, { ssl: "verify-full" });
-  const articles = await sql<Article[]>`
-		SELECT id, title, date, description, href
-		FROM articles
-		ORDER BY date DESC;
-	`;
+  const body = JSON.stringify({
+    query: `
+		{
+			ArticleItems {
+				items {
+					id
+					name
+					sort_by_date
+					full_slug
+					content {
+						summary
+					}
+				}
+			}
+		}
+		`,
+  });
 
-  return articles;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body,
+  });
+
+  return (await response.json()).data.ArticleItems.items.sort(
+    (a1: Article, a2: Article) => {
+      if (a1.sort_by_date == null) {
+        return 1;
+      }
+
+      if (a2.sort_by_date == null) {
+        return 0;
+      }
+
+      if (a1.sort_by_date < a2.sort_by_date) {
+        return 1;
+      }
+
+      if (a1.sort_by_date > a2.sort_by_date) {
+        return -1;
+      }
+
+      return 0;
+    },
+  );
 }
 
 async function generateArticles() {
@@ -42,11 +84,11 @@ async function generateArticles() {
     return articles.map((article) => (
       <ArticleListItem
         key={article.id}
-        title={article.title}
-        date={article.date}
-        to={article.href}
+        title={article.name}
+        date={article.sort_by_date}
+        to={article.full_slug}
       >
-        {article.description}
+        {article.content.summary}
       </ArticleListItem>
     ));
   } catch {
