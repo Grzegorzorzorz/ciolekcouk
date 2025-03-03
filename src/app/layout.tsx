@@ -2,7 +2,7 @@ import "./tailwind.css";
 import React from "react";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
-import StoryblokProvider from "@/components/storyblok/provider";
+import StoryblokProvider from "@/components/storyblok/StoryblokProvider";
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_API_TOKEN,

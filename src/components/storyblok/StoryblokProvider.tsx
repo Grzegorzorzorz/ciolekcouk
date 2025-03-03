@@ -1,14 +1,8 @@
 "use client";
 
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import React from "react";
 
-/** 2. Initialize it as usual */
-
-storyblokInit({
-  accessToken: process.env.STORYBLOK_API_TOKEN,
-  use: [apiPlugin],
-});
+import { getStoryblokApi } from "@/lib/storyblok";
 
 interface StoryblokProviderProps {
   children: React.ReactNode;
@@ -17,5 +11,6 @@ interface StoryblokProviderProps {
 export default function StoryblokProvider({
   children,
 }: StoryblokProviderProps) {
+  getStoryblokApi();
   return children;
 }
