@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface ArticleListItemProps {
@@ -15,7 +16,7 @@ export default function ArticleListItem({
 }: ArticleListItemProps) {
   return (
     <li className="list-row">
-      <a href={`/${to}`}>
+      <Link href={`/${to}`}>
         <div>
           <div className="text-xl font-bold">{title}</div>
           <div className="text-xs uppercase font-bold opacity-60">
@@ -23,7 +24,7 @@ export default function ArticleListItem({
           </div>
         </div>
         <div className="list-col-wrap text-sm opacity-80">{children}</div>
-      </a>
+      </Link>
     </li>
   );
 }
