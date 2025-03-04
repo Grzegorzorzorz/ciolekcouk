@@ -1,14 +1,12 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
-
-import postgres from "postgres";
 
 import ArticleListItem from "@/components/articleListItem";
 import List from "@/components/list";
 import Prose from "@/components/prose";
 
 import Loading from "./loading";
+import { getStoryblokHeaders, storyblokGapiUrl } from "@/lib/storyblok";
 
 interface Article {
   id: number;
@@ -21,17 +19,13 @@ interface Article {
 }
 
 async function fetchArticles(): Promise<Article[]> {
-  const url = "https://gapi.storyblok.com/v1/api";
-  let headers = new Headers();
-  headers.set("token", `${process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN}`);
-  headers.set("version", `${process.env.STORYBLOK_VERSION}`);
-  headers.set("Content-Type", "application/json");
-  console.log(headers);
+  const url = storyblokGapiUrl;
+  let headers = getStoryblokHeaders();
 
   const body = JSON.stringify({
     query: `
 		{
-			ArticleItems {
+			ArticleItems (sort_by: "sort_by_date:desc") {
 				items {
 					id
 					name
@@ -52,27 +46,7 @@ async function fetchArticles(): Promise<Article[]> {
     body: body,
   });
 
-  return (await response.json()).data.ArticleItems.items.sort(
-    (a1: Article, a2: Article) => {
-      if (a1.sort_by_date == null) {
-        return 1;
-      }
-
-      if (a2.sort_by_date == null) {
-        return 0;
-      }
-
-      if (a1.sort_by_date < a2.sort_by_date) {
-        return 1;
-      }
-
-      if (a1.sort_by_date > a2.sort_by_date) {
-        return -1;
-      }
-
-      return 0;
-    },
-  );
+  return (await response.json()).data.ArticleItems.items;
 }
 
 async function generateArticles() {
