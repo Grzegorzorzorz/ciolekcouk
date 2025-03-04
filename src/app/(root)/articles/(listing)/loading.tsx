@@ -14,11 +14,11 @@ function Skeleton() {
 
 export default function Loading() {
   return (
-    <List>
+    <>
       <Skeleton />
       <Skeleton />
       <Skeleton />
       <Skeleton />
-    </List>
+    </>
   );
 }
