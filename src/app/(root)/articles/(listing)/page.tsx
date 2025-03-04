@@ -8,6 +8,8 @@ import Prose from "@/components/prose";
 import Loading from "./loading";
 import { getStoryblokHeaders, storyblokGapiUrl } from "@/lib/storyblok";
 
+export const dynamic = "force-dynamic";
+
 interface Article {
   id: number;
   name: string;
