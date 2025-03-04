@@ -5,7 +5,6 @@ import ArticleListItem from "@/components/articleListItem";
 import List from "@/components/list";
 import Prose from "@/components/prose";
 
-import { LoadingListing } from "./loading";
 import { getStoryblokHeaders, storyblokGapiUrl } from "@/lib/storyblok";
 
 export const dynamic = "force-dynamic";
@@ -80,6 +79,30 @@ async function generateArticles() {
       </div>,
     ];
   }
+}
+
+function LoadingListing() {
+  function SkeletonListing() {
+    return (
+      <div className="list-row">
+        <div>
+          <div className="skeleton max-w-full w-42 h-5"></div>
+          <div className="skeleton max-w-full w-16 h-2 mt-2"></div>
+        </div>
+        <div className="skeleton list-col-wrap max-w-full w-3xl h-3"></div>
+      </div>
+    );
+  }
+  return (
+    <>
+      <List>
+        <SkeletonListing />
+        <SkeletonListing />
+        <SkeletonListing />
+        <SkeletonListing />
+      </List>
+    </>
+  );
 }
 
 export const metadata: Metadata = {
