@@ -1,3 +1,4 @@
+import Prose from "@/components/prose";
 import { getStoryblokApi, getStoryProp } from "@/lib/storyblok";
 import { StoryblokStory } from "@storyblok/react/rsc";
 import { Metadata } from "next";
@@ -21,7 +22,17 @@ async function fetchArticle(year: string, slug: string) {
 export default async function Article(props: any) {
   const params = await props.params;
   const story = await fetchArticle(params.year, params.slug);
-  return <StoryblokStory story={story} />;
+  return (
+    <article>
+      <ul className="text-sm opacity-65 m-0 list-none p-0">
+        <li>Published: {`${story.sort_by_date}`}</li>
+      </ul>
+      <Prose>
+        <h1>{story.name}</h1>
+        <StoryblokStory story={story} />
+      </Prose>
+    </article>
+  );
 }
 
 export async function generateMetadata(props: any): Promise<Metadata> {
