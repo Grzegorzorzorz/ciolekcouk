@@ -55,8 +55,6 @@ async function generateArticles() {
   try {
     const articles = await fetchArticles();
 
-    await new Promise((r) => setTimeout(r, 2000));
-
     return articles.map((article) => (
       <ArticleListItem
         key={article.id}
