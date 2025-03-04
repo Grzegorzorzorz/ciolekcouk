@@ -29,7 +29,7 @@ export default function Projects() {
           I started this site to showcase my projects, and to post articles
           about stuff I either find interesting, or resources for future
           reference, such as fixing the{" "}
-          <a href="/articles/hyprland-nvidia-prime-20240312">
+          <a href="/articles/2024/hyprland-nvidia-prime-and-suspend-issues">
             Nvidia issues I had on Hyprland
           </a>
           .
