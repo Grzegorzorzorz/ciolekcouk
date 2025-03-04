@@ -30,7 +30,7 @@ function NavButton() {
 export default function Header({ hideNav }: HeaderProps) {
   return (
     <header className="z-30 sticky top-0 navbar bg-base-100 shadow-lg lg:px-4">
-      {!!hideNav ? <NavButton /> : <></>}
+      {!hideNav ? <NavButton /> : <></>}
       <div className="navbar-center md:navbar-start">
         <span className="text-4xl font-bold align-middle text-left print:pl-0 sm:block hidden">
           Grzegorz Ciołek
