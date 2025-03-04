@@ -8,6 +8,7 @@ import GitHubIcon from "@/icons/faSolidGithub.svg";
 import LinkedInIcon from "@/icons/faSolidLinkedin.svg";
 
 import { headers } from "next/headers";
+import Link from "next/link";
 
 interface NavLinkProps {
   to: string;
@@ -42,12 +43,12 @@ async function NavLink({ to, external, children }: NavLinkProps) {
   if (external !== true) {
     return (
       <li>
-        <a
+        <Link
           className={BASE_CLASSES + (isCurrent ? " menu-active" : "")}
           href={to}
         >
           {children}
-        </a>
+        </Link>
       </li>
     );
   } else {
