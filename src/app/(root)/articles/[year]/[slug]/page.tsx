@@ -1,7 +1,8 @@
 import Prose from "@/components/prose";
 import { getStoryblokApi, getStoryProp } from "@/lib/storyblok";
-import { StoryblokStory } from "@storyblok/react/rsc";
+import { ISbError, StoryblokStory } from "@storyblok/react/rsc";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 async function fetchArticle(year: string, slug: string) {
   let version: "published" | "draft" | undefined = undefined;
@@ -12,11 +13,24 @@ async function fetchArticle(year: string, slug: string) {
   }
 
   const storyblockApi = getStoryblokApi();
-  const response = await storyblockApi.getStory(`articles/${year}/${slug}`, {
-    version: version,
-  });
-
-  return response.data.story;
+  try {
+    const response = await storyblockApi.getStory(`articles/${year}/${slug}`, {
+      version: version,
+    });
+    return response.data.story;
+  } catch (e) {
+    const error = e as ISbError;
+    switch (error.status) {
+      case 401:
+        break;
+      case 404:
+        notFound();
+      default:
+        console.error(`${error.status}: ${error.response}`);
+        console.debug(`for resource: articles/${year}/${slug}`);
+    }
+    notFound();
+  }
 }
 
 export default async function Article(props: any) {
