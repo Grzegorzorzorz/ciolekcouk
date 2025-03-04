@@ -1,5 +1,6 @@
-import { getStoryblokApi } from "@/lib/storyblok";
+import { getStoryblokApi, getStoryProp } from "@/lib/storyblok";
 import { StoryblokStory } from "@storyblok/react/rsc";
+import { Metadata } from "next";
 
 async function fetchArticle(year: string, slug: string) {
   let version: "published" | "draft" | undefined = undefined;
@@ -21,4 +22,16 @@ export default async function Article(props: any) {
   const params = await props.params;
   const story = await fetchArticle(params.year, params.slug);
   return <StoryblokStory story={story} />;
+}
+
+export async function generateMetadata(props: any): Promise<Metadata> {
+  const params = await props.params;
+  const title = await getStoryProp(
+    "name",
+    `articles/${params.year}/${params.slug}`,
+  );
+
+  return {
+    title: title ? title : "Article",
+  };
 }
