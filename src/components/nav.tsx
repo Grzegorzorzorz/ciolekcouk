@@ -17,19 +17,19 @@ export default function Nav() {
         <li>
           <h2 className="menu-title">ciolek.co.uk</h2>
           <ul>
-            <NavLink to="/">
+            <NavLink to="/" prefetch>
               Home
               <HomeIcon className={ICON_CLASSES} />
             </NavLink>
-            <NavLink to="/contact">
+            <NavLink to="/contact" prefetch>
               Contact
               <ContactIcon className={ICON_CLASSES} />
             </NavLink>
-            <NavLink to="/articles">
+            <NavLink to="/articles" prefetch>
               Articles
               <ArticlesIcon className={ICON_CLASSES} />
             </NavLink>
-            <NavLink to="/projects">
+            <NavLink to="/projects" prefetch>
               Projects
               <ProjectsIcon className={ICON_CLASSES} />
             </NavLink>

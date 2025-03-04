@@ -8,10 +8,16 @@ import { usePathname } from "next/navigation";
 interface NavLinkProps {
   to: string;
   external?: boolean;
+  prefetch?: boolean;
   children: React.ReactNode;
 }
 
-export default function NavLink({ to, external, children }: NavLinkProps) {
+export default function NavLink({
+  to,
+  external,
+  prefetch,
+  children,
+}: NavLinkProps) {
   function linkIsCurrent() {
     const path = usePathname();
 
@@ -39,6 +45,7 @@ export default function NavLink({ to, external, children }: NavLinkProps) {
       <li>
         <Link
           className={BASE_CLASSES + (isCurrent ? " menu-active" : "")}
+          prefetch={prefetch}
           href={to}
         >
           {children}
