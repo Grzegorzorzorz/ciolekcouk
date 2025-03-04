@@ -5,7 +5,7 @@ import ArticleListItem from "@/components/articleListItem";
 import List from "@/components/list";
 import Prose from "@/components/prose";
 
-import Loading from "./loading";
+import { LoadingListing } from "./loading";
 import { getStoryblokHeaders, storyblokGapiUrl } from "@/lib/storyblok";
 
 export const dynamic = "force-dynamic";
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
 export default function Articles() {
   return (
     <>
-      <Prose>
+      <Prose className="mb-4">
         <h1>Articles</h1>
         <p>
           These articles mostly fall into two categories: things I find cool or
@@ -98,9 +98,9 @@ export default function Articles() {
         </p>
         <p>If it falls into the latter category, follow at your own risk!</p>
       </Prose>
-      <List className="mt-4">
-        <Suspense fallback={<Loading />}>{generateArticles()}</Suspense>
-      </List>
+      <Suspense fallback={<LoadingListing />}>
+        <List>{generateArticles()}</List>
+      </Suspense>
     </>
   );
 }

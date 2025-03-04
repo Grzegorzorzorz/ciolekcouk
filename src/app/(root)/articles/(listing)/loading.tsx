@@ -1,6 +1,6 @@
 import List from "@/components/list";
 
-function Skeleton() {
+function SkeletonListing() {
   return (
     <div className="list-row">
       <div>
@@ -12,13 +12,15 @@ function Skeleton() {
   );
 }
 
-export default function Loading() {
+export function LoadingListing() {
   return (
     <>
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
-      <Skeleton />
+      <List>
+        <SkeletonListing />
+        <SkeletonListing />
+        <SkeletonListing />
+        <SkeletonListing />
+      </List>
     </>
   );
 }
