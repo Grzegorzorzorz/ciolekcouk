@@ -1,7 +1,9 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 
-import ArticleListItem from "@/components/articleListItem";
+import ArticleListItem, {
+  ArticleListItemSkele,
+} from "@/components/articleListItem";
 import List from "@/components/list";
 import Prose from "@/components/prose";
 
@@ -82,24 +84,13 @@ async function generateArticles() {
 }
 
 function LoadingListing() {
-  function SkeletonListing() {
-    return (
-      <div className="list-row">
-        <div>
-          <div className="skeleton max-w-full w-42 h-5"></div>
-          <div className="skeleton max-w-full w-16 h-2 mt-2"></div>
-        </div>
-        <div className="skeleton list-col-wrap max-w-full w-3xl h-3"></div>
-      </div>
-    );
-  }
   return (
     <>
       <List>
-        <SkeletonListing />
-        <SkeletonListing />
-        <SkeletonListing />
-        <SkeletonListing />
+        <ArticleListItemSkele />
+        <ArticleListItemSkele />
+        <ArticleListItemSkele />
+        <ArticleListItemSkele />
       </List>
     </>
   );
