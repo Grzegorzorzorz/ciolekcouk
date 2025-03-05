@@ -23,7 +23,7 @@ export default function ArticleListItem({
             {date ? date : "Undefined"}
           </div>
         </div>
-        <div className="list-col-wrap text-sm opacity-80">{children}</div>
+        <div className="list-col-wrap text-sm opacity-80 mt-2">{children}</div>
       </Link>
     </li>
   );
@@ -36,7 +36,7 @@ export function ArticleListItemSkele() {
         <div className="skeleton max-w-full w-42 h-5"></div>
         <div className="skeleton max-w-full w-16 h-2 mt-2"></div>
       </div>
-      <div className="skeleton list-col-wrap max-w-full w-3xl h-3"></div>
+      <div className="skeleton list-col-wrap max-w-full w-3xl h-3 mt-2"></div>
     </div>
   );
 }
