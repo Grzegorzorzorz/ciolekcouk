@@ -1,4 +1,5 @@
 import LinkExtern from "@/components/linkExtern";
+import Link from "next/link";
 import React from "react";
 import {
   NODE_IMAGE,
@@ -30,6 +31,8 @@ export const rendererOptions: any = {
       if (href.match(/^(https?:)?\/\//)) {
         return <LinkExtern href={href}>{children}</LinkExtern>;
       }
+
+      return <Link href={href}>{children}</Link>;
     },
   },
 };
