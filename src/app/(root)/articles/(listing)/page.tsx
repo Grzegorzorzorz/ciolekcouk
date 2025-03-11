@@ -11,6 +11,7 @@ import { getStoryblokHeaders, storyblokGapiUrl } from "@/lib/storyblok";
 import { unstable_cache } from "next/cache";
 
 export const dynamic = "force-dynamic";
+export const revalidate = 300;
 
 interface Article {
   id: number;
