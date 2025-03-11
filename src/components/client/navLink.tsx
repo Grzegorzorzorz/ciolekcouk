@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { MouseEventHandler } from "react";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -37,6 +37,10 @@ export default function NavLink({
     return isCurrent;
   }
 
+  function hideNav() {
+    (document.getElementById("nav-drawer") as HTMLInputElement).checked = false;
+  }
+
   let isCurrent = linkIsCurrent();
   const BASE_CLASSES = "flex flex-row justify-between";
 
@@ -47,6 +51,7 @@ export default function NavLink({
           className={BASE_CLASSES + (isCurrent ? " menu-active" : "")}
           prefetch={prefetch}
           href={to}
+          onClick={() => hideNav()}
         >
           {children}
         </Link>
