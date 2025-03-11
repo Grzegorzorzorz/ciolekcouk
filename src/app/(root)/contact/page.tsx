@@ -35,7 +35,7 @@ export default function Contact() {
         </li>
       </ul>
       <h2>University</h2>
-      <div className="alert alert-warning">
+      <div className="alert alert-warning not-prose">
         <WarningIcon className="h-5 w-5" />
         <span>
           I ask that these details be used purely for academic purposes. Other
