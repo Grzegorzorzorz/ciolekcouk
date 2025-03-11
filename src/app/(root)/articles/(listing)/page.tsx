@@ -8,6 +8,7 @@ import List from "@/components/list";
 import Prose from "@/components/prose";
 
 import { getStoryblokHeaders, storyblokGapiUrl } from "@/lib/storyblok";
+import { unstable_cache } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -21,40 +22,44 @@ interface Article {
   };
 }
 
-async function fetchArticles(): Promise<Article[]> {
-  const url = storyblokGapiUrl;
-  let headers = getStoryblokHeaders();
+const fetchArticles = unstable_cache(
+  async () => {
+    const url = storyblokGapiUrl;
+    let headers = getStoryblokHeaders();
 
-  const body = JSON.stringify({
-    query: `
-		{
-			ArticleItems (sort_by: "sort_by_date:desc") {
-				items {
-					id
-					name
-					sort_by_date
-					full_slug
-					content {
-						summary
+    const body = JSON.stringify({
+      query: `
+			{
+				ArticleItems (sort_by: "sort_by_date:desc") {
+					items {
+						id
+						name
+						sort_by_date
+						full_slug
+						content {
+							summary
+						}
 					}
 				}
 			}
-		}
-		`,
-  });
+			`,
+    });
 
-  const response = await fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body,
-  });
+    let response = await fetch(url, {
+      method: "POST",
+      headers: headers,
+      body: body,
+    });
 
-  return (await response.json()).data.ArticleItems.items;
-}
+    return (await response.json()).data.ArticleItems.items;
+  },
+  ["articles"],
+  { revalidate: 300, tags: ["articles"] },
+);
 
 async function generateArticles() {
   try {
-    const articles = await fetchArticles();
+    const articles: Article[] = await fetchArticles();
 
     return articles.map((article) => (
       <ArticleListItem
