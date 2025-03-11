@@ -107,7 +107,7 @@ export const metadata: Metadata = {
   title: `Articles ${titleSuffix}`,
   description:
     "Read articles about the various topics that I find interesting, " +
-    "problems I've solved, and the lessons I've learnt",
+    "problems I've solved, and the lessons I've learnt.",
 };
 
 export default function Articles() {
