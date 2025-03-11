@@ -1,6 +1,7 @@
 import Prose from "@/components/prose";
+import { titleSuffix } from "@/lib/const";
 import { getStoryblokApi, getStoryProp } from "@/lib/storyblok";
-import { ISbError, StoryblokStory } from "@storyblok/react/rsc";
+import { ISbError, ISbStoryData, StoryblokStory } from "@storyblok/react/rsc";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
@@ -33,9 +34,12 @@ async function fetchArticle(year: string, slug: string) {
   }
 }
 
+let storyPromise: Promise<any>;
+
 export default async function Article(props: any) {
   const params = await props.params;
-  const story = await fetchArticle(params.year, params.slug);
+  storyPromise = fetchArticle(params.year, params.slug);
+  const story = await storyPromise;
   return (
     <article>
       <ul className="text-sm opacity-65 m-0 list-none p-0">
@@ -51,12 +55,13 @@ export default async function Article(props: any) {
 
 export async function generateMetadata(props: any): Promise<Metadata> {
   const params = await props.params;
-  const title = await getStoryProp(
-    "name",
-    `articles/${params.year}/${params.slug}`,
-  );
+  let story = await storyPromise;
+  console.log(JSON.stringify(story, null, 2));
 
   return {
-    title: title ? title : "Article",
+    title: `${story.name ? story.name : "Article"} ${titleSuffix}`,
+    description: story.content.summary
+      ? story.content.summary
+      : "The article description could not be fetched. Please try again later.",
   };
 }

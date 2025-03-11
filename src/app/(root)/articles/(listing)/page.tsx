@@ -1,6 +1,7 @@
 import React, { Suspense } from "react";
 import type { Metadata } from "next";
 
+import { titleSuffix } from "@/lib/const";
 import ArticleListItem, {
   ArticleListItemSkele,
 } from "@/components/articleListItem";
@@ -103,7 +104,10 @@ function LoadingListing() {
 }
 
 export const metadata: Metadata = {
-  title: "Articles",
+  title: `Articles ${titleSuffix}`,
+  description:
+    "Read articles about the various topics that I find interesting, " +
+    "problems I've solved, and the lessons I've learnt",
 };
 
 export default function Articles() {

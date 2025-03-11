@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { titleSuffix } from "@/lib/const";
 import Prose from "@/components/prose";
 import Tooltip from "@/components/tooltip";
 import { TooltipPos } from "@/components/tooltip";
@@ -7,7 +8,9 @@ import { TooltipPos } from "@/components/tooltip";
 import WarningIcon from "@/icons/faSolidTriangleExclamation.svg";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: `Contact ${titleSuffix}`,
+  description:
+    "Find my contact details and get in touch with me via email or phone.",
 };
 
 export default function Contact() {

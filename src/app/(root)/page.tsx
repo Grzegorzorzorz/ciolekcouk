@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 
+import { titleSuffix } from "@/lib/const";
+
 import Prose from "@/components/prose";
 
 export const metadata: Metadata = {
-  title: "Home",
+  title: `Home ${titleSuffix}`,
+  description:
+    "Learn about Grzegorz Ciołek, a Computer Science student at Aberystwyth " +
+    "University. Find out more about his projects, hobbies, and interests.",
 };
 
 export default function Home() {

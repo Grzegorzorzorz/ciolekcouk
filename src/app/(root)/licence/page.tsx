@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
+import { titleSuffix } from "@/lib/const";
 import Prose from "@/components/prose";
 
 export const metadata: Metadata = {
-  title: "Licence",
+  title: `Licence ${titleSuffix}`,
 };
 
 export default function Licence() {

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
 
+import { titleSuffix } from "@/lib/const";
 import LinkExtern from "@/components/linkExtern";
 import Prose from "@/components/prose";
 
 export const metadata: Metadata = {
-  title: "Projects",
+  title: `Projects ${titleSuffix}`,
+  description: "Find out about the projects I work on in my free time.",
 };
 
 export default function Projects() {

@@ -3,9 +3,10 @@ import type { Metadata } from "next";
 
 import Collapse from "@/components/collapse";
 import Prose from "@/components/prose";
+import { titleSuffix } from "@/lib/const";
 
 export const metadata: Metadata = {
-  title: "Third-party licences",
+  title: `Third-party licences ${titleSuffix}`,
 };
 
 export default function ThirdPartyLicence() {
