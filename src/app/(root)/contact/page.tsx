@@ -25,7 +25,7 @@ export default function Contact() {
           </Tooltip>
           <a
             className="not-prose ml-2 font-bold badge badge-info"
-            href="/resources/keys/contact.asc"
+            href="/resources/keys/contact.ciolekcouk.asc"
           >
             PGP key
           </a>
@@ -53,7 +53,7 @@ export default function Contact() {
           </Tooltip>
           <a
             className="not-prose ml-2 font-bold badge badge-info"
-            href="/resources/keys/grc22.asc"
+            href="/resources/keys/grc22.aberacuk.asc"
           >
             PGP key
           </a>
