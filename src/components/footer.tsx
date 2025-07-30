@@ -20,9 +20,6 @@ export default function Footer() {
           .
         </p>
       </aside>
-      <nav>
-        <AberWebRing />
-      </nav>
     </footer>
   );
 }
