@@ -26,9 +26,8 @@ export default function Home() {
         </p>
         <h2>About me</h2>
         <p>
-          My name is Grzegorz (Greg); I am a second year Computer Science
-          student at Aberystwyth University, studying to, hopefully, achieve a
-          Master's level qualification (MComp).
+          My name is Grzegorz (Greg); I am a third year Computer Science student
+          at Aberystwyth University, studying for a Bachelor's degree.
         </p>
         <p>
           I have been programming since the age of twelve, and have found a

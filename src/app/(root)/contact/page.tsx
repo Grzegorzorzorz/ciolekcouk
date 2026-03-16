@@ -30,12 +30,6 @@ export default function Contact() {
             PGP key
           </a>
         </li>
-        <li>
-          <strong>Mobile</strong>:{" "}
-          <Tooltip text="Public phone" position={TooltipPos.BOTTOM}>
-            <a href="tel:+447599857384">+44 7599 857 384</a>
-          </Tooltip>
-        </li>
       </ul>
       <h2>University</h2>
       <div className="alert alert-warning not-prose">
@@ -61,11 +55,7 @@ export default function Contact() {
       </ul>
       <div className="divider"></div>
       <div>
-        <p>
-          I check the email inbox regularly! Please do reach out by email before
-          calling; this is a dedicated phone number that I don't check often and
-          avoid unsolicited calls from.
-        </p>
+        <p>I check the email inbox regularly! Please feel free to reach out.</p>
         <p>
           The university email is provided purely for convenience, and with
           permission from the university. Please use the public email for any
