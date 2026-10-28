@@ -1,3 +1,4 @@
+import Prose from "@/components/storyblok/Prose";
 import Article from "@/components/storyblok/Article";
 import Page from "@/components/storyblok/Page";
 import { apiPlugin, storyblokInit, ISbError } from "@storyblok/react/rsc";
@@ -9,6 +10,7 @@ export const getStoryblokApi = storyblokInit({
   components: {
     article: Article,
     page: Page,
+    prose: Prose,
   },
 });
 
