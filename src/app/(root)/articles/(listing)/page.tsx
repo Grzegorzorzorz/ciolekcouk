@@ -31,20 +31,19 @@ const fetchArticles = unstable_cache(
 
     const body = JSON.stringify({
       query: `
-			{
-				ArticleItems (sort_by: "sort_by_date:desc") {
-					items {
-						id
-						name
-						sort_by_date
-						full_slug
-						content {
-							summary
-						}
-					}
-				}
-			}
-			`,
+      {
+        ArticleItems (sort_by: "sort_by_date:desc") {
+          items {
+            id
+            name
+            sort_by_date
+            full_slug
+            content {
+              summary
+            }
+          }
+        }
+      }`,
     });
 
     let response = await fetch(url, {
