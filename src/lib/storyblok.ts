@@ -1,5 +1,6 @@
 import Article from "@/components/storyblok/Article";
-import { apiPlugin, storyblokInit } from "@storyblok/react/rsc";
+import { apiPlugin, storyblokInit, ISbError } from "@storyblok/react/rsc";
+import { notFound } from "next/navigation";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN,
@@ -18,6 +19,35 @@ export function getStoryblokHeaders(): Headers {
   headers.set("Content-Type", "application/json");
 
   return headers;
+}
+
+export async function fetchStory(slug: string) {
+  let version: "published" | "draft" | undefined = undefined;
+  switch (process.env.STORYBLOK_VERSION) {
+    case "published":
+    case "draft":
+      version = process.env.STORYBLOK_VERSION;
+  }
+
+  const storyblockApi = getStoryblokApi();
+  try {
+    const response = await storyblockApi.getStory(slug, {
+      version: version,
+    });
+    return response.data.story;
+  } catch (e) {
+    const error = e as ISbError;
+    switch (error.status) {
+      case 401:
+        break;
+      case 404:
+        notFound();
+      default:
+        console.error(`${error.status}: ${error.response}`);
+        console.debug(`for resource: ${slug}`);
+    }
+    notFound();
+  }
 }
 
 export async function getStoryProp(

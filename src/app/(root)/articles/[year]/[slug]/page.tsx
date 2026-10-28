@@ -1,45 +1,19 @@
 import Prose from "@/components/prose";
 import { titleSuffix } from "@/lib/const";
-import { getStoryblokApi, getStoryProp } from "@/lib/storyblok";
-import { ISbError, ISbStoryData, StoryblokStory } from "@storyblok/react/rsc";
+import { fetchStory } from "@/lib/storyblok";
+import { StoryblokStory } from "@storyblok/react/rsc";
 import { Metadata } from "next";
-import { notFound } from "next/navigation";
 
-async function fetchArticle(year: string, slug: string) {
-  let version: "published" | "draft" | undefined = undefined;
-  switch (process.env.STORYBLOK_VERSION) {
-    case "published":
-    case "draft":
-      version = process.env.STORYBLOK_VERSION;
-  }
-
-  const storyblockApi = getStoryblokApi();
-  try {
-    const response = await storyblockApi.getStory(`articles/${year}/${slug}`, {
-      version: version,
-    });
-    return response.data.story;
-  } catch (e) {
-    const error = e as ISbError;
-    switch (error.status) {
-      case 401:
-        break;
-      case 404:
-        notFound();
-      default:
-        console.error(`${error.status}: ${error.response}`);
-        console.debug(`for resource: articles/${year}/${slug}`);
-    }
-    notFound();
-  }
+interface PageProps {
+  params: Promise<{
+    year: string;
+    slug: string;
+  }>;
 }
 
-let storyPromise: Promise<any>;
-
-export default async function Article(props: any) {
-  const params = await props.params;
-  storyPromise = fetchArticle(params.year, params.slug);
-  const story = await storyPromise;
+export default async function Article(props: PageProps) {
+  const { year, slug } = await props.params;
+  const story = await fetchStory(`/articles/${year}/${slug}`);
   return (
     <article>
       <ul className="text-sm opacity-65 m-0 list-none p-0">
@@ -53,13 +27,12 @@ export default async function Article(props: any) {
   );
 }
 
-export async function generateMetadata(props: any): Promise<Metadata> {
-  const params = await props.params;
-  let story = await storyPromise;
-  console.log(JSON.stringify(story, null, 2));
+export async function generateMetadata(props: PageProps): Promise<Metadata> {
+  const { year, slug } = await props.params;
+  const story = await fetchStory(`/articles/${year}/${slug}`);
 
   return {
-    title: `${story.name ? story.name : "Article"} ${titleSuffix}`,
+    title: `${story.name ?? "Article"} ${titleSuffix}`,
     description: story.content.summary
       ? story.content.summary
       : "The article description could not be fetched. Please try again later.",
