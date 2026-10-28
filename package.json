@@ -3,15 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "next lint",
     "proxy": "local-ssl-proxy --source 3010 --target 3000 --cert .cert/localhost.pem --key .cert/localhost-key.pem"
   },
   "dependencies": {
-    "@storyblok/react": "^4.4.0",
-    "next": "15.3.8",
+    "@storyblok/react": "^5.4.22",
+    "next": "^16.4.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "storyblok-rich-text-react-renderer": "^2.9.2"
@@ -19,7 +19,7 @@
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
-    "@tailwindcss/typography": "^0.5.16",
+    "@tailwindcss/typography": "^0.5.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
