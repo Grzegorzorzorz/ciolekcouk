@@ -1,4 +1,5 @@
 import Article from "@/components/storyblok/Article";
+import Page from "@/components/storyblok/Page";
 import { apiPlugin, storyblokInit, ISbError } from "@storyblok/react/rsc";
 import { notFound } from "next/navigation";
 
@@ -7,6 +8,7 @@ export const getStoryblokApi = storyblokInit({
   use: [apiPlugin],
   components: {
     article: Article,
+    page: Page,
   },
 });
 
