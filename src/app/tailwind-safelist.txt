@@ -2,3 +2,7 @@ tooltip-top
 tooltip-bottom
 tooltip-left
 tooltip-right
+alert-info
+alert-success
+alert-warning
+alert-error

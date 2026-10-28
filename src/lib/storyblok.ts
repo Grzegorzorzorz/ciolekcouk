@@ -3,6 +3,7 @@ import Article from "@/components/storyblok/Article";
 import Page from "@/components/storyblok/Page";
 import { apiPlugin, storyblokInit, ISbError } from "@storyblok/react/rsc";
 import { notFound } from "next/navigation";
+import Alert from "@/components/storyblok/Alert";
 
 export const getStoryblokApi = storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_API_TOKEN,
@@ -11,6 +12,7 @@ export const getStoryblokApi = storyblokInit({
     article: Article,
     page: Page,
     prose: Prose,
+    alert: Alert,
   },
 });
 
