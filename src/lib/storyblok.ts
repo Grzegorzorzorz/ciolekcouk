@@ -14,7 +14,7 @@ export const getStoryblokApi = storyblokInit({
   },
 });
 
-export const storyblokGapiUrl = "https://gapi.storyblok.com/v1/api";
+export const storyblokGapiUrl = "https://gapi.storyblok.com/v2/api";
 
 export function getStoryblokHeaders(): Headers {
   let headers = new Headers();
